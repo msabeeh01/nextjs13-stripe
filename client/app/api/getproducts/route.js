@@ -11,13 +11,14 @@ export async function POST(req) {
         line_items: [
           {
             // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: 'price_1NjRIsJcp39E8XWwz4iOyUxm',
+            price: 'price_1NkIgFJcp39E8XWwkYWvmXk3',
             quantity: 1,
           },
         ],
         mode: 'payment',
         success_url: `http://localhost:3000/?success=true`,
         cancel_url: `http://localhost:3000/?canceled=true`,
+        payment_method_types: ['card'],
       });
       return NextResponse.redirect(session.url, {status: 303});
     } catch (err) {
